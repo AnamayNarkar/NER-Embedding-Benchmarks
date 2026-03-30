@@ -1,0 +1,119 @@
+{
+  "timestamp_utc": "2026-03-30T22:19:46.180477+00:00",
+  "llama_cli": "/home/anamay/Programming/open-source/llama.cpp/build/bin/llama-cli",
+  "models_dir": "/home/anamay/Programming/testing/test_models_gsoc/models",
+  "token_limit": 1000,
+  "system_prompt": "You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized visual semantic string designed to be passed to an image embedding model (e.g., SigLIP or CLIP).\n\n### JSON SCHEMA\nYour output must strictly adhere to the following JSON structure:\n{\n  \"people\": [\"array of strings (extract explicit names only)\"],\n  \"date_from\": \"YYYY-MM-DD (ISO 8601 format, or null)\",\n  \"date_to\": \"YYYY-MM-DD (ISO 8601 format, or null)\",\n  \"tags\": [\"array of strings (explicitly requested categories or tags)\"],\n  \"visual_query\": \"string (generalized scene description without specific names)\",\n  \"confidence\": float (0.0 to 1.0)\n}\n\n### EXTRACTION RULES\n1. **People**: Extract specific human names. Do not include pronouns or generic identifiers (like \"my brother\" or \"a guy\").\n2. **Dates**: Assume the current date is March 31, 2026. Resolve relative dates (e.g., \"last winter\", \"August 2022\", \"yesterday\") into concrete `date_from` and `date_to` bounds. If a single day is referenced, `date_from` and `date_to` must be identical. If no date is implied, output `null` for both.\n3. **Tags**: Only populate this array if the user explicitly asks results with tags x, y . then and only then add these tagsin the array\n4. **Visual Query Abstraction**: This is the most critical step. Take the descriptive action or scene from the query and generalize it. Remove the specific names extracted in the \"people\" array and replace them with generic nouns (e.g., replace \"Sarah and Jason\" with \"people\", replace \"my dog Max\" with \"a dog\"). This string must be highly optimized for a visual embedding space.\n5. **Format Restriction**: Output raw JSON only. Do not wrap the output in ```json ... ``` code blocks. Do not add any preamble.\n\n### EXAMPLES\n\nUser: \"Find pictures of Sarah and Jason skiing in the Alps last winter which could have the tags Activities, Snowboarding\"\n{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"tags\": [\n    \"Activities\",\n    \"Snowboarding\"\n  ],\n  \"visual_query\": \"people skiing in snowy mountain ranges\",\n  \"confidence\": 0.95\n}\n\nUser: \"Show me the photos of David at the beach house from July 4th 2021\"\n{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"tags\": [],\n  \"visual_query\": \"person at a beach house\",\n  \"confidence\": 0.98\n}\n\nUser: \"just a dark moody sunset over the city skyline, no specific people\"\n{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"tags\": [],\n  \"visual_query\": \"dark moody sunset over a city skyline\",\n  \"confidence\": 0.85\n}",
+  "user_query": "I need to find those photos of Michael and Emma hiking through the redwood forest during our road trip last August, they might be in the album tagged Pacific Northwest or Vacation.",
+  "results": [
+    {
+      "model": "google_gemma-3-1b-it-Q4_K_M.gguf",
+      "exit_code": 0,
+      "peak_ram_kb": 1209824,
+      "peak_ram_mb": 1181.47,
+      "parsed_json": {
+        "people": [
+          "Michael",
+          "Emma"
+        ],
+        "date_from": "2023-08-01",
+        "date_to": "2023-08-01",
+        "tags": [
+          "Pacific Northwest",
+          "Vacation"
+        ],
+        "visual_query": "hiking through redwood forest",
+        "confidence": 0.97
+      },
+      "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : google_gemma-3-1b-it-Q4_K_M.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized vis ... (truncated)\n\n```json\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": \"2023-08-01\",\n  \"date_to\": \"2023-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest\",\n  \"confidence\": 0.97\n}\n```\n\n[ Prompt: 189.4 t/s | Generation: 21.2 t/s ]\n\nExiting...",
+      "stderr": ""
+    },
+    {
+      "model": "llama-3.2-1b-instruct-q4_k_m.gguf",
+      "exit_code": 0,
+      "peak_ram_kb": 5359652,
+      "peak_ram_mb": 5234.04,
+      "parsed_json": {
+        "people": [
+          "Emma"
+        ],
+        "date_from": "2022-08-01",
+        "date_to": "2022-08-01",
+        "tags": [
+          "Pacific Northwest",
+          "Vacation"
+        ],
+        "visual_query": "hiking through redwood forest with people",
+        "confidence": 0.95
+      },
+      "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : llama-3.2-1b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized vis ... (truncated)\n\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"hiking through redwood forest with people\",\n  \"confidence\": 0.95\n}\n\n{\n  \"people\": [\n    \"Michael\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n   \n\n[ Prompt: 213.5 t/s | Generation: 19.6 t/s ]\n\nExiting...",
+      "stderr": ""
+    },
+    {
+      "model": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "exit_code": 0,
+      "peak_ram_kb": 1006084,
+      "peak_ram_mb": 982.5,
+      "parsed_json": {
+        "people": [
+          "Michael",
+          "Emma"
+        ],
+        "date_from": "2022-08-01",
+        "date_to": "2022-08-01",
+        "tags": [
+          "Pacific Northwest",
+          "Vacation"
+        ],
+        "visual_query": "people hiking in the redwood forest",
+        "confidence": 0.9
+      },
+      "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : qwen2.5-0.5b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized vis ... (truncated)\n\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"people hiking in the redwood forest\",\n  \"confidence\": 0.90\n}\n\n[ Prompt: 277.2 t/s | Generation: 40.9 t/s ]\n\nExiting...",
+      "stderr": ""
+    },
+    {
+      "model": "qwen2.5-1.5b-instruct-q4_k_m-00001-of-00001.gguf",
+      "exit_code": 0,
+      "peak_ram_kb": 2618620,
+      "peak_ram_mb": 2557.25,
+      "parsed_json": {
+        "people": [
+          "Michael",
+          "Emma"
+        ],
+        "date_from": "2022-08-01",
+        "date_to": "2022-08-01",
+        "tags": [
+          "Pacific Northwest",
+          "Vacation"
+        ],
+        "visual_query": "people hiking in a redwood forest",
+        "confidence": 0.92
+      },
+      "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : qwen2.5-1.5b-instruct-q4_k_m-00001-of-00001.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized vis ... (truncated)\n\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"people hiking in a redwood forest\",\n  \"confidence\": 0.92\n}\n\n[ Prompt: 125.4 t/s | Generation: 17.3 t/s ]\n\nExiting...",
+      "stderr": ""
+    },
+    {
+      "model": "smollm2-1.7b-instruct-q4_k_m.gguf",
+      "exit_code": 0,
+      "peak_ram_kb": 3433776,
+      "peak_ram_mb": 3353.3,
+      "parsed_json": {
+        "people": [
+          "Michael",
+          "Emma"
+        ],
+        "date_from": "2021-08-01",
+        "date_to": "2021-08-01",
+        "tags": [
+          "Pacific Northwest",
+          "Vacation"
+        ],
+        "visual_query": "people hiking through a redwood forest",
+        "confidence": 0.99
+      },
+      "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : smollm2-1.7b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> You are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a generalized vis ... (truncated)\n\n{\n  \"people\": [\n    \"Michael\",\n    \"Emma\"\n  ],\n  \"date_from\": \"2021-08-01\",\n  \"date_to\": \"2021-08-01\",\n  \"tags\": [\n    \"Pacific Northwest\",\n    \"Vacation\"\n  ],\n  \"visual_query\": \"people hiking through a redwood forest\",\n  \"confidence\": 0.99\n}\n\n[ Prompt: 99.3 t/s | Generation: 13.9 t/s ]\n\nExiting...",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,2277 @@
+[
+  {
+    "model": "google_gemma-3-1b-it-Q4_K_M.gguf",
+    "disk_mb": 768.7,
+    "ram_delta_mb": 0.0,
+    "avg_time_s": 11.06,
+    "avg_scores": {
+      "people_accuracy": 0.75,
+      "date_accuracy": 0.617,
+      "location_accuracy": 0.825,
+      "tags_accuracy": 0.525,
+      "visual_query_quality": 0.763,
+      "json_validity": 1.0,
+      "overall": 0.731
+    },
+    "query_results": [
+      {
+        "query": "Find photos of Sarah and Jason skiing in the Alps last winter.",
+        "ground_truth": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountain landscape"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"location\": \"Alps\",\n  \"tags\": [\n    \"Activities\",\n    \"Snowboarding\"\n  ],\n  \"visual_query\": \"people skiing in snowy mountain ranges\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [
+            "Activities",
+            "Snowboarding"
+          ],
+          "visual_query": "people skiing in snowy mountain ranges",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.82,
+          "notes": "People, date, and location are exact matches. Tags are incorrect (should be empty, but model added 'Activities' and 'Snowboarding'). Visual query is very close but not identical ('mountain ranges' vs 'mountain landscape'). JSON is valid."
+        },
+        "elapsed_s": 11.156858921051025
+      },
+      {
+        "query": "Show photos of David at the beach house on July 4th 2021.",
+        "ground_truth": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"location\": \"beach house\",\n  \"tags\": [\n    \"sunset\",\n    \"city skyline\"\n  ],\n  \"visual_query\": \"photos of David at the beach house\",\n  \"confidence\": 0.98\n}",
+        "parsed": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [
+            "sunset",
+            "city skyline"
+          ],
+          "visual_query": "photos of David at the beach house",
+          "confidence": 0.98
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.8,
+          "json_validity": 1.0,
+          "overall": 0.8,
+          "notes": "People, date, and location are exact matches. Tags are incorrect (should be empty). Visual query is close but less abstract than ground truth. JSON is valid."
+        },
+        "elapsed_s": 10.88541555404663
+      },
+      {
+        "query": "Show photos from Goa with the tags vacation and sunset.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "travel photos in a coastal setting at sunset"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Goa\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Goa\",\n  \"tags\": [\n    \"vacation\",\n    \"sunset\"\n  ],\n  \"visual_query\": \"photos of Goa with sunset\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "Goa"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "photos of Goa with sunset",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "Incorrectly identified 'Goa' as a person (should be empty), but date, location, tags, and JSON format are correct. Visual query is relevant but less descriptive than ground truth."
+        },
+        "elapsed_s": 9.947406768798828
+      },
+      {
+        "query": "Photos of Rahul and Priya hiking in Ladakh from August 2022.",
+        "ground_truth": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in mountain terrain"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rahul\",\n    \"Priya\"\n  ],\n  \"date_from\": \"2022-08-20\",\n  \"date_to\": \"2022-08-20\",\n  \"location\": \"Ladakh\",\n  \"tags\": [\n    \"Hiking\",\n    \"Nature\"\n  ],\n  \"visual_query\": \"people hiking in mountain landscapes\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-20",
+          "date_to": "2022-08-20",
+          "location": "Ladakh",
+          "tags": [
+            "Hiking",
+            "Nature"
+          ],
+          "visual_query": "people hiking in mountain landscapes",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.5,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.82,
+          "notes": "People and location are exact matches. Date is a subset (single day instead of full month). Tags are extra but relevant. Visual query is a minor paraphrase. JSON is valid."
+        },
+        "elapsed_s": 11.391298055648804
+      },
+      {
+        "query": "Need wedding reception shots from June 2024 with tags wedding and family.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": null,
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "outdoor wedding reception celebration"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"wedding\"\n  ],\n  \"date_from\": \"2024-06-01\",\n  \"date_to\": \"2024-06-01\",\n  \"location\": \"wedding reception\",\n  \"tags\": [\n    \"wedding\",\n    \"family\"\n  ],\n  \"visual_query\": \"wedding reception shots\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "wedding"
+          ],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-01",
+          "location": "wedding reception",
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "wedding reception shots",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.5,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.53,
+          "notes": "People field is incorrect ('wedding' is not a person). Date range is too narrow (single day instead of full month). Location is incorrectly extracted ('wedding reception' is not a location entity here). Tags are correct. Visual query is relevant but less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 11.224038362503052
+      },
+      {
+        "query": "Kids playing in the park last summer.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2025-06-01",
+          "date_to": "2025-08-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "children playing outdoors in a park"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"kids\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"park\",\n  \"tags\": [\n    \"children\",\n    \"play\"\n  ],\n  \"visual_query\": \"kids playing in a park\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [
+            "kids"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "park",
+          "tags": [
+            "children",
+            "play"
+          ],
+          "visual_query": "kids playing in a park",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.53,
+          "notes": "People field incorrectly extracted 'kids' as a person; date fields missing; location matches; tags partially overlap; visual query is close but less descriptive; JSON is valid."
+        },
+        "elapsed_s": 10.38093090057373
+      },
+      {
+        "query": "Rohan and Meera engagement photos from December 2025.",
+        "ground_truth": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": null,
+          "tags": [],
+          "visual_query": "couple engagement ceremony"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rohan\",\n    \"Meera\"\n  ],\n  \"date_from\": \"2025-12-20\",\n  \"date_to\": \"2026-12-20\",\n  \"location\": \"city\",\n  \"tags\": [\n    \"engagement\",\n    \"love\"\n  ],\n  \"visual_query\": \"engagement photos of a couple\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-20",
+          "date_to": "2026-12-20",
+          "location": "city",
+          "tags": [
+            "engagement",
+            "love"
+          ],
+          "visual_query": "engagement photos of a couple",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.2,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.57,
+          "notes": "People are correct. Date range is incorrect (should be December 2025 only). Location is hallucinated. Tags partially match (engagement is relevant, love is not in ground truth). Visual query is similar but less specific. JSON is valid."
+        },
+        "elapsed_s": 11.921408891677856
+      },
+      {
+        "query": "Black and white street photography from Mumbai.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in an urban city"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Mumbai\",\n  \"tags\": [\n    \"street photography\",\n    \"city skyline\"\n  ],\n  \"visual_query\": \"black and white street photography of Mumbai\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [
+            "street photography",
+            "city skyline"
+          ],
+          "visual_query": "black and white street photography of Mumbai",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.9,
+          "notes": "All required fields are present and valid. 'people', 'date', and 'location' are perfect matches. Tags include an extra ('city skyline') not in ground truth, so partial credit. Visual query is highly relevant and specific. JSON is valid."
+        },
+        "elapsed_s": 10.812732219696045
+      },
+      {
+        "query": "Neha singing on stage at the college fest with tags concert and performance.",
+        "ground_truth": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a live event"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Neha\"\n  ],\n  \"date_from\": \"2024-03-15\",\n  \"date_to\": \"2024-03-15\",\n  \"location\": \"college fest\",\n  \"tags\": [\n    \"concert\",\n    \"performance\"\n  ],\n  \"visual_query\": \"Neha singing on stage\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": "2024-03-15",
+          "date_to": "2024-03-15",
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "Neha singing on stage",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People, location, and tags are exact matches. Date is incorrectly added (should be null). Visual query is relevant but less generic than ground truth. JSON is valid."
+        },
+        "elapsed_s": 11.663127899169922
+      },
+      {
+        "query": "Travel photos from Europe in 2019 with Lisa.",
+        "ground_truth": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel sightseeing around european landmarks"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Lisa\"\n  ],\n  \"date_from\": \"2019-06-01\",\n  \"date_to\": \"2019-06-01\",\n  \"location\": \"Europe\",\n  \"tags\": [\n    \"Travel\",\n    \"Photography\"\n  ],\n  \"visual_query\": \"travel photos of Europe\",\n  \"confidence\": 0.97\n}",
+        "parsed": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-06-01",
+          "date_to": "2019-06-01",
+          "location": "Europe",
+          "tags": [
+            "Travel",
+            "Photography"
+          ],
+          "visual_query": "travel photos of Europe",
+          "confidence": 0.97
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.2,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.45,
+          "notes": "People and location are correct. Date is too narrow (only one day vs full year). Tags are incorrect (should be empty). Visual query is relevant but less specific than ground truth. JSON is valid."
+        },
+        "elapsed_s": 12.001207828521729
+      },
+      {
+        "query": "Indoor plant photos near the window.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near window",
+          "tags": [],
+          "visual_query": "indoor plants with natural window light"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"near the window\",\n  \"tags\": [\n    \"plant\",\n    \"indoor\"\n  ],\n  \"visual_query\": \"indoor plant photos\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near the window",
+          "tags": [
+            "plant",
+            "indoor"
+          ],
+          "visual_query": "indoor plant photos",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.9,
+          "tags_accuracy": 0.8,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.88,
+          "notes": "People and date fields are correct (empty/null). Location is nearly correct ('near the window' vs 'near window'). Tags are relevant but not an exact match (ground truth has none, model adds reasonable tags). Visual query is missing 'natural window light'. JSON is valid."
+        },
+        "elapsed_s": 10.69064974784851
+      },
+      {
+        "query": "Just a dark moody sunset over the city skyline.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over city skyline"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"city skyline\",\n  \"tags\": [\n    \"sunset\",\n    \"city skyline\"\n  ],\n  \"visual_query\": \"dark moody sunset over a city skyline\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [
+            "sunset",
+            "city skyline"
+          ],
+          "visual_query": "dark moody sunset over a city skyline",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.95,
+          "json_validity": 1.0,
+          "overall": 0.91,
+          "notes": "All fields match except 'tags', which is extra in the model output but not in ground truth. Visual query is nearly identical except for the added 'a'. JSON is valid."
+        },
+        "elapsed_s": 10.692284345626831
+      }
+    ]
+  },
+  {
+    "model": "llama-3.2-1b-instruct-q4_k_m.gguf",
+    "disk_mb": 770.3,
+    "ram_delta_mb": 0.0,
+    "avg_time_s": 10.54,
+    "avg_scores": {
+      "people_accuracy": 1.0,
+      "date_accuracy": 0.7,
+      "location_accuracy": 0.75,
+      "tags_accuracy": 0.817,
+      "visual_query_quality": 0.729,
+      "json_validity": 0.983,
+      "overall": 0.816
+    },
+    "query_results": [
+      {
+        "query": "Find photos of Sarah and Jason skiing in the Alps last winter.",
+        "ground_truth": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountain landscape"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"location\": \"Alps\",\n  \"tags\": [\n    \"Activities\",\n    \"Snowboarding\"\n  ],\n  \"visual_query\": \"people skiing in snowy mountain ranges\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [
+            "Activities",
+            "Snowboarding"
+          ],
+          "visual_query": "people skiing in snowy mountain ranges",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.82,
+          "notes": "People, date, and location are exact matches. Tags are incorrect (should be empty, but model added 'Activities' and 'Snowboarding'). Visual query is very close but not identical ('mountain ranges' vs 'mountain landscape'). JSON is valid."
+        },
+        "elapsed_s": 11.604283332824707
+      },
+      {
+        "query": "Show photos of David at the beach house on July 4th 2021.",
+        "ground_truth": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"location\": \"beach house\",\n  \"tags\": [],\n  \"visual_query\": \"person at a beach house\",\n  \"confidence\": 0.98\n}",
+        "parsed": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house",
+          "confidence": 0.98
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 1.0,
+          "json_validity": 1.0,
+          "overall": 1.0,
+          "notes": "All fields match the ground truth exactly. The extra 'confidence' field does not affect validity."
+        },
+        "elapsed_s": 9.420109510421753
+      },
+      {
+        "query": "Show photos from Goa with the tags vacation and sunset.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "travel photos in a coastal setting at sunset"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Goa\",\n  \"tags\": [\n    \"vacation\",\n    \"sunset\"\n  ],\n  \"visual_query\": \"a photo of a sunset over a beach in Goa\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "a photo of a sunset over a beach in Goa",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.8,
+          "json_validity": 1.0,
+          "overall": 0.97,
+          "notes": "All fields match exactly except visual_query, which is relevant but less descriptive than the ground truth. JSON is valid."
+        },
+        "elapsed_s": 9.316776514053345
+      },
+      {
+        "query": "Photos of Rahul and Priya hiking in Ladakh from August 2022.",
+        "ground_truth": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in mountain terrain"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rahul\",\n    \"Priya\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"location\": \"Ladakh\",\n  \"tags\": [\n    \"Hiking\",\n    \"Ladakh\"\n  ],\n  \"visual_query\": \"hiking in a mountainous region\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-01",
+          "location": "Ladakh",
+          "tags": [
+            "Hiking",
+            "Ladakh"
+          ],
+          "visual_query": "hiking in a mountainous region",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.7,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.85,
+          "notes": "People and location are exact matches. Date_to is too restrictive (should be end of August), so partial credit. Tags are partially correct: 'Hiking' is relevant, but 'Ladakh' is redundant with location and not in ground truth. Visual query is a close paraphrase. JSON is valid."
+        },
+        "elapsed_s": 10.552342653274536
+      },
+      {
+        "query": "Need wedding reception shots from June 2024 with tags wedding and family.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": null,
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "outdoor wedding reception celebration"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"wedding reception\",\n  \"tags\": [\n    \"wedding\",\n    \"family\"\n  ],\n  \"visual_query\": \"a wedding reception with a family setting\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "wedding reception",
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "a wedding reception with a family setting",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.62,
+          "notes": "People and tags are correct. Dates are missing (should be June 2024). Location is incorrectly filled with an event type instead of null. Visual query is relevant but less specific than ground truth. JSON is valid."
+        },
+        "elapsed_s": 9.88630986213684
+      },
+      {
+        "query": "Kids playing in the park last summer.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2025-06-01",
+          "date_to": "2025-08-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "children playing outdoors in a park"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"park\",\n  \"tags\": [],\n  \"visual_query\": \"kids playing in a park\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "park",
+          "tags": [],
+          "visual_query": "kids playing in a park",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People, location, tags, and JSON structure are correct. Dates are missing (should cover summer 2025). Visual query is similar but less descriptive than ground truth."
+        },
+        "elapsed_s": 9.935157537460327
+      },
+      {
+        "query": "Rohan and Meera engagement photos from December 2025.",
+        "ground_truth": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": null,
+          "tags": [],
+          "visual_query": "couple engagement ceremony"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rohan\",\n    \"Meera\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2025-12-01\",\n  \"location\": \"India\",\n  \"tags\": [\n    \"Engagement\",\n    \"Photography\"\n  ],\n  \"visual_query\": \"engagement photos of Rohan and Meera in India\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-01",
+          "location": "India",
+          "tags": [
+            "Engagement",
+            "Photography"
+          ],
+          "visual_query": "engagement photos of Rohan and Meera in India",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.7,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.3,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.58,
+          "notes": "People are exactly correct. Date range is too narrow (single day instead of full month). Location is hallucinated (should be null). Tags are extra (should be empty). Visual query is relevant but adds unnecessary details and location. JSON is valid."
+        },
+        "elapsed_s": 11.66050672531128
+      },
+      {
+        "query": "Black and white street photography from Mumbai.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in an urban city"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Mumbai\",\n  \"tags\": [],\n  \"visual_query\": \"black and white street photography from Mumbai\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography from Mumbai",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 0.8,
+          "overall": 0.95,
+          "notes": "All fields match exactly except for 'visual_query', which is very close but repeats the query wording rather than paraphrasing as in the ground truth. The model output includes an extra 'confidence' field, which slightly reduces JSON validity."
+        },
+        "elapsed_s": 9.022597312927246
+      },
+      {
+        "query": "Neha singing on stage at the college fest with tags concert and performance.",
+        "ground_truth": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a live event"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Neha\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"college fest\",\n  \"tags\": [\n    \"concert\",\n    \"performance\"\n  ],\n  \"visual_query\": \"Neha singing on stage at the college fest with concert and performance\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "Neha singing on stage at the college fest with concert and performance",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.95,
+          "notes": "All fields match exactly except visual_query, which is less abstract and more literal than the ground truth but still relevant. JSON is valid."
+        },
+        "elapsed_s": 10.75486946105957
+      },
+      {
+        "query": "Travel photos from Europe in 2019 with Lisa.",
+        "ground_truth": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel sightseeing around european landmarks"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Lisa\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Europe\",\n  \"tags\": [],\n  \"visual_query\": \"travel photos from Europe in 2019\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel photos from Europe in 2019",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People, location, and tags are correct. Dates are missing (should be 2019-01-01 to 2019-12-31). Visual query is relevant but less specific than ground truth. JSON is valid."
+        },
+        "elapsed_s": 13.773600339889526
+      },
+      {
+        "query": "Indoor plant photos near the window.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near window",
+          "tags": [],
+          "visual_query": "indoor plants with natural window light"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"indoor plant photos near the window\",\n  \"tags\": [],\n  \"visual_query\": \"indoor plant photos near the window\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "indoor plant photos near the window",
+          "tags": [],
+          "visual_query": "indoor plant photos near the window",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.0,
+          "json_validity": 1.0,
+          "overall": 0.5,
+          "notes": "People, date, and tags fields are correct (empty/null as expected). Location and visual_query are not properly normalized or extracted, just copied from the query. JSON format is valid."
+        },
+        "elapsed_s": 11.38917350769043
+      },
+      {
+        "query": "Just a dark moody sunset over the city skyline.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over city skyline"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"city skyline\",\n  \"tags\": [],\n  \"visual_query\": \"dark moody sunset over a city skyline\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over a city skyline",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.95,
+          "json_validity": 1.0,
+          "overall": 0.99,
+          "notes": "All fields match exactly except 'visual_query', which has a minor difference ('over a city skyline' vs 'over city skyline'). JSON is valid; extra 'confidence' key does not affect validity."
+        },
+        "elapsed_s": 9.131117105484009
+      }
+    ]
+  },
+  {
+    "model": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "disk_mb": 468.6,
+    "ram_delta_mb": 0.0,
+    "avg_time_s": 6.58,
+    "avg_scores": {
+      "people_accuracy": 0.917,
+      "date_accuracy": 0.35,
+      "location_accuracy": 0.75,
+      "tags_accuracy": 0.692,
+      "visual_query_quality": 0.654,
+      "json_validity": 1.0,
+      "overall": 0.7
+    },
+    "query_results": [
+      {
+        "query": "Find photos of Sarah and Jason skiing in the Alps last winter.",
+        "ground_truth": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountain landscape"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"location\": \"Alps\",\n  \"tags\": [\n    \"skiing\",\n    \"Alps\"\n  ],\n  \"visual_query\": \"people skiing in snowy mountain ranges\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [
+            "skiing",
+            "Alps"
+          ],
+          "visual_query": "people skiing in snowy mountain ranges",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.9,
+          "notes": "All main fields match exactly except 'tags', where the model added extra but relevant tags. The 'visual_query' is nearly identical with only a minor wording difference. JSON is valid."
+        },
+        "elapsed_s": 8.843324899673462
+      },
+      {
+        "query": "Show photos of David at the beach house on July 4th 2021.",
+        "ground_truth": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"location\": \"beach house\",\n  \"tags\": [],\n  \"visual_query\": \"person at a beach house\",\n  \"confidence\": 0.98\n}",
+        "parsed": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house",
+          "confidence": 0.98
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 1.0,
+          "json_validity": 1.0,
+          "overall": 1.0,
+          "notes": "All fields match the ground truth exactly. The extra 'confidence' field does not affect validity or accuracy."
+        },
+        "elapsed_s": 5.870462656021118
+      },
+      {
+        "query": "Show photos from Goa with the tags vacation and sunset.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "travel photos in a coastal setting at sunset"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": \"2023-05-15\",\n  \"date_to\": \"2023-05-15\",\n  \"location\": \"Goa\",\n  \"tags\": [\n    \"vacation\",\n    \"sunset\"\n  ],\n  \"visual_query\": \"people in Goa with a sunset\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [],
+          "date_from": "2023-05-15",
+          "date_to": "2023-05-15",
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "people in Goa with a sunset",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.75,
+          "notes": "People, location, and tags are correct. Dates are incorrectly added. Visual query is relevant but less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 6.009328842163086
+      },
+      {
+        "query": "Photos of Rahul and Priya hiking in Ladakh from August 2022.",
+        "ground_truth": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in mountain terrain"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rahul\",\n    \"Priya\"\n  ],\n  \"date_from\": \"2022-08-20\",\n  \"date_to\": \"2022-08-20\",\n  \"location\": \"Ladakh\",\n  \"tags\": [\n    \"hiking\",\n    \"Ladakh\"\n  ],\n  \"visual_query\": \"people hiking in Ladakh\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-20",
+          "date_to": "2022-08-20",
+          "location": "Ladakh",
+          "tags": [
+            "hiking",
+            "Ladakh"
+          ],
+          "visual_query": "people hiking in Ladakh",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.5,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.8,
+          "json_validity": 1.0,
+          "overall": 0.8,
+          "notes": "People and location are exact matches. Date is too narrow (single day vs. full month). Tags include correct activity but add redundant location. Visual query is relevant but less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 6.59888482093811
+      },
+      {
+        "query": "Need wedding reception shots from June 2024 with tags wedding and family.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": null,
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "outdoor wedding reception celebration"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": \"2024-06-20\",\n  \"date_to\": \"2024-06-20\",\n  \"location\": \"city\",\n  \"tags\": [\n    \"wedding\",\n    \"family\"\n  ],\n  \"visual_query\": \"wedding reception photos\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [],
+          "date_from": "2024-06-20",
+          "date_to": "2024-06-20",
+          "location": "city",
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "wedding reception photos",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People and tags are correct. Date is too narrow (single day vs. full month). Location is incorrectly specified ('city' vs. null). Visual query is relevant but less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 6.9155073165893555
+      },
+      {
+        "query": "Kids playing in the park last summer.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2025-06-01",
+          "date_to": "2025-08-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "children playing outdoors in a park"
+        },
+        "raw_output": "{\n  \"people\": [\"kids\"],\n  \"date_from\": \"2022-06-01\",\n  \"date_to\": \"2022-06-30\",\n  \"location\": \"park\",\n  \"tags\": [\"playing\"],\n  \"visual_query\": \"people playing in a park\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "kids"
+          ],
+          "date_from": "2022-06-01",
+          "date_to": "2022-06-30",
+          "location": "park",
+          "tags": [
+            "playing"
+          ],
+          "visual_query": "people playing in a park",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People: Incorrectly extracted 'kids' as a person; ground truth expects none. Date: Model output is for 2022, but query is for 'last summer' (2025 per ground truth). Location: Correctly identified 'park'. Tags: Model added 'playing', but ground truth expects none. Visual query: Model missed 'children' and 'outdoors', but is otherwise close. JSON is valid."
+        },
+        "elapsed_s": 7.25721549987793
+      },
+      {
+        "query": "Rohan and Meera engagement photos from December 2025.",
+        "ground_truth": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": null,
+          "tags": [],
+          "visual_query": "couple engagement ceremony"
+        },
+        "raw_output": "{\n  \"people\": [\"Rohan\", \"Meera\"],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2025-12-01\",\n  \"location\": \"city skyline\",\n  \"tags\": [\"dark\", \"moody\", \"sunset\"],\n  \"visual_query\": \"Rohan and Meera engagement photos from December 2025\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-01",
+          "location": "city skyline",
+          "tags": [
+            "dark",
+            "moody",
+            "sunset"
+          ],
+          "visual_query": "Rohan and Meera engagement photos from December 2025",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.5,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.2,
+          "json_validity": 1.0,
+          "overall": 0.45,
+          "notes": "People are correct. Date range is too narrow (single day instead of full month). Location is hallucinated. Tags are hallucinated. Visual query is just a restatement of the query, not a descriptive visual concept. JSON is valid."
+        },
+        "elapsed_s": 7.180144548416138
+      },
+      {
+        "query": "Black and white street photography from Mumbai.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in an urban city"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": \"2023-04-01\",\n  \"date_to\": \"2023-04-01\",\n  \"location\": \"Mumbai\",\n  \"tags\": [],\n  \"visual_query\": \"black and white street photography from Mumbai\",\n  \"confidence\": 1.0\n}",
+        "parsed": {
+          "people": [],
+          "date_from": "2023-04-01",
+          "date_to": "2023-04-01",
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography from Mumbai",
+          "confidence": 1.0
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.82,
+          "notes": "People, location, tags, and JSON structure are correct. Dates are incorrectly added (should be null). Visual query is nearly perfect, only minor wording difference."
+        },
+        "elapsed_s": 6.68030858039856
+      },
+      {
+        "query": "Neha singing on stage at the college fest with tags concert and performance.",
+        "ground_truth": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a live event"
+        },
+        "raw_output": "{\n  \"people\": [\"Neha\"],\n  \"date_from\": \"2026-03-31\",\n  \"date_to\": \"2026-03-31\",\n  \"location\": \"college fest\",\n  \"tags\": [\"concert\", \"performance\"],\n  \"visual_query\": \"Neha singing on stage at the college fest\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": "2026-03-31",
+          "date_to": "2026-03-31",
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "Neha singing on stage at the college fest",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People, location, and tags are correct. Date is incorrectly added (should be null). Visual query is specific but less general than ground truth. JSON is valid."
+        },
+        "elapsed_s": 6.656255483627319
+      },
+      {
+        "query": "Travel photos from Europe in 2019 with Lisa.",
+        "ground_truth": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel sightseeing around european landmarks"
+        },
+        "raw_output": "{\n  \"people\": [\"Lisa\"],\n  \"date_from\": \"2019-12-01\",\n  \"date_to\": \"2019-12-01\",\n  \"location\": \"Europe\",\n  \"tags\": [\"travel photos\", \"Europe\"],\n  \"visual_query\": \"people in Europe\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-12-01",
+          "date_to": "2019-12-01",
+          "location": "Europe",
+          "tags": [
+            "travel photos",
+            "Europe"
+          ],
+          "visual_query": "people in Europe",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.2,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.3,
+          "visual_query_quality": 0.4,
+          "json_validity": 1.0,
+          "overall": 0.65,
+          "notes": "People and location are correct. Date is too narrow (only one day instead of full year). Tags are partially relevant but not in ground truth. Visual query is less specific than ground truth. JSON is valid."
+        },
+        "elapsed_s": 6.106740713119507
+      },
+      {
+        "query": "Indoor plant photos near the window.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near window",
+          "tags": [],
+          "visual_query": "indoor plants with natural window light"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": \"2026-03-31\",\n  \"date_to\": \"2026-03-31\",\n  \"location\": \"window\",\n  \"tags\": [],\n  \"visual_query\": \"indoors plant photos near the window\",\n  \"confidence\": 1.0\n}",
+        "parsed": {
+          "people": [],
+          "date_from": "2026-03-31",
+          "date_to": "2026-03-31",
+          "location": "window",
+          "tags": [],
+          "visual_query": "indoors plant photos near the window",
+          "confidence": 1.0
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People and tags are correctly empty. Date is incorrectly filled. Location is not specific enough ('window' vs 'near window'). Visual query is similar but less descriptive. JSON is valid."
+        },
+        "elapsed_s": 5.716482162475586
+      },
+      {
+        "query": "Just a dark moody sunset over the city skyline.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over city skyline"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"city skyline\",\n  \"tags\": [],\n  \"visual_query\": \"dark moody sunset over a city skyline\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over a city skyline",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.95,
+          "json_validity": 1.0,
+          "overall": 0.99,
+          "notes": "All fields match exactly except for the visual_query, which has a minor difference ('over a city skyline' vs 'over city skyline'). JSON is valid and includes an extra 'confidence' field, which does not affect validity."
+        },
+        "elapsed_s": 5.1309356689453125
+      }
+    ]
+  },
+  {
+    "model": "qwen2.5-1.5b-instruct-q4_k_m-00001-of-00001.gguf",
+    "disk_mb": 940.4,
+    "ram_delta_mb": 0.0,
+    "avg_time_s": 13.44,
+    "avg_scores": {
+      "people_accuracy": 0.833,
+      "date_accuracy": 0.917,
+      "location_accuracy": 0.817,
+      "tags_accuracy": 1.0,
+      "visual_query_quality": 0.792,
+      "json_validity": 1.0,
+      "overall": 0.865
+    },
+    "query_results": [
+      {
+        "query": "Find photos of Sarah and Jason skiing in the Alps last winter.",
+        "ground_truth": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountain landscape"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"location\": \"Alps\",\n  \"tags\": [],\n  \"visual_query\": \"people skiing in snowy mountains\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountains",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.95,
+          "json_validity": 1.0,
+          "overall": 0.99,
+          "notes": "All fields match exactly except 'visual_query', which is very close but omits 'landscape'; JSON is valid."
+        },
+        "elapsed_s": 15.736163139343262
+      },
+      {
+        "query": "Show photos of David at the beach house on July 4th 2021.",
+        "ground_truth": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"location\": \"beach house\",\n  \"tags\": [],\n  \"visual_query\": \"David at a beach house\",\n  \"confidence\": 0.95\n}",
+        "parsed": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "David at a beach house",
+          "confidence": 0.95
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.98,
+          "notes": "All fields match exactly except 'visual_query', which is slightly more specific ('David at a beach house' vs. 'person at a beach house'), but still highly relevant. JSON is valid."
+        },
+        "elapsed_s": 13.476476192474365
+      },
+      {
+        "query": "Show photos from Goa with the tags vacation and sunset.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "travel photos in a coastal setting at sunset"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Goa\",\n  \"tags\": [\"vacation\", \"sunset\"],\n  \"visual_query\": \"pictures of Goa with sunset\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "pictures of Goa with sunset",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.8,
+          "json_validity": 1.0,
+          "overall": 0.97,
+          "notes": "All fields match exactly except for the visual_query, which is similar but less descriptive than the ground truth. JSON is valid."
+        },
+        "elapsed_s": 12.59242296218872
+      },
+      {
+        "query": "Photos of Rahul and Priya hiking in Ladakh from August 2022.",
+        "ground_truth": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in mountain terrain"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rahul\",\n    \"Priya\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-31\",\n  \"location\": \"Ladakh\",\n  \"tags\": [],\n  \"visual_query\": \"people hiking in Ladakh\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in Ladakh",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.8,
+          "json_validity": 1.0,
+          "overall": 0.97,
+          "notes": "All fields match exactly except for 'visual_query', which is slightly less general ('people hiking in Ladakh' vs. 'people hiking in mountain terrain'). JSON is valid and includes an extra 'confidence' field, which does not affect validity."
+        },
+        "elapsed_s": 13.864169120788574
+      },
+      {
+        "query": "Need wedding reception shots from June 2024 with tags wedding and family.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": null,
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "outdoor wedding reception celebration"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"family\"\n  ],\n  \"date_from\": \"2024-06-01\",\n  \"date_to\": \"2024-06-30\",\n  \"location\": \"wedding reception\",\n  \"tags\": [\n    \"wedding\",\n    \"family\"\n  ],\n  \"visual_query\": \"wedding reception with family\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "family"
+          ],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": "wedding reception",
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "wedding reception with family",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People field incorrectly extracted 'family' as a person; date and tags are correct; location should be null, not 'wedding reception'; visual query is relevant but less descriptive than ground truth; JSON is valid."
+        },
+        "elapsed_s": 13.808590412139893
+      },
+      {
+        "query": "Kids playing in the park last summer.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2025-06-01",
+          "date_to": "2025-08-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "children playing outdoors in a park"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Kids\"\n  ],\n  \"date_from\": \"2021-07-01\",\n  \"date_to\": \"2021-07-31\",\n  \"location\": \"park\",\n  \"tags\": [],\n  \"visual_query\": \"kids playing in a park\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "Kids"
+          ],
+          "date_from": "2021-07-01",
+          "date_to": "2021-07-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "kids playing in a park",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People field incorrectly extracted 'Kids' as a person; date range is wrong (should be 2025, not 2021); location and tags are correct; visual query is similar but less descriptive; JSON is valid."
+        },
+        "elapsed_s": 13.657350778579712
+      },
+      {
+        "query": "Rohan and Meera engagement photos from December 2025.",
+        "ground_truth": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": null,
+          "tags": [],
+          "visual_query": "couple engagement ceremony"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Rohan\",\n    \"Meera\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2025-12-31\",\n  \"location\": \"engagement photos\",\n  \"tags\": [],\n  \"visual_query\": \"engagement photos of Rohan and Meera\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": "engagement photos",
+          "tags": [],
+          "visual_query": "engagement photos of Rohan and Meera",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People and dates are perfectly matched. Location is incorrect as 'engagement photos' is not a location and should be null. Tags are correctly empty. Visual query is relevant but more literal and less general than ground truth. JSON is valid."
+        },
+        "elapsed_s": 14.472767114639282
+      },
+      {
+        "query": "Black and white street photography from Mumbai.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in an urban city"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Mumbai\",\n  \"tags\": [],\n  \"visual_query\": \"black and white street photography in Mumbai\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in Mumbai",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.98,
+          "notes": "All fields match exactly except for 'visual_query', which is slightly more specific ('in Mumbai' vs 'in an urban city'), but still highly relevant. JSON is valid."
+        },
+        "elapsed_s": 11.859297752380371
+      },
+      {
+        "query": "Neha singing on stage at the college fest with tags concert and performance.",
+        "ground_truth": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a live event"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Neha\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"college fest\",\n  \"tags\": [\n    \"concert\",\n    \"performance\"\n  ],\n  \"visual_query\": \"person singing on stage at a college fest\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a college fest",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.98,
+          "notes": "All fields match exactly except 'visual_query', which is slightly more specific in the model output ('college fest' instead of 'live event'). JSON is valid."
+        },
+        "elapsed_s": 13.420376300811768
+      },
+      {
+        "query": "Travel photos from Europe in 2019 with Lisa.",
+        "ground_truth": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel sightseeing around european landmarks"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Lisa\"\n  ],\n  \"date_from\": \"2019-01-01\",\n  \"date_to\": \"2019-12-31\",\n  \"location\": \"Europe\",\n  \"tags\": [],\n  \"visual_query\": \"travel photos in Europe in 2019\",\n  \"confidence\": 0.92\n}",
+        "parsed": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel photos in Europe in 2019",
+          "confidence": 0.92
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.95,
+          "notes": "All fields except 'visual_query' are exact matches. The 'visual_query' is relevant but less specific than the ground truth, missing 'sightseeing' and 'landmarks'. JSON is valid."
+        },
+        "elapsed_s": 14.590577840805054
+      },
+      {
+        "query": "Indoor plant photos near the window.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near window",
+          "tags": [],
+          "visual_query": "indoor plants with natural window light"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"window\",\n  \"tags\": [],\n  \"visual_query\": \"indoor plants near a window\",\n  \"confidence\": 0.9\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "window",
+          "tags": [],
+          "visual_query": "indoor plants near a window",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.8,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.95,
+          "notes": "All fields are correct except for minor differences in 'location' ('window' vs 'near window') and 'visual_query' wording. JSON is valid and all required fields are present."
+        },
+        "elapsed_s": 11.858309745788574
+      },
+      {
+        "query": "Just a dark moody sunset over the city skyline.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over city skyline"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"city skyline\",\n  \"tags\": [],\n  \"visual_query\": \"dark moody sunset over a city skyline\",\n  \"confidence\": 0.85\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over a city skyline",
+          "confidence": 0.85
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.95,
+          "json_validity": 1.0,
+          "overall": 0.99,
+          "notes": "All fields match exactly except for 'visual_query', which has a minor difference ('over a city skyline' vs 'over city skyline'). The JSON is valid and includes an extra 'confidence' field, which does not affect validity."
+        },
+        "elapsed_s": 11.974581480026245
+      }
+    ]
+  },
+  {
+    "model": "smollm2-1.7b-instruct-q4_k_m.gguf",
+    "disk_mb": 1006.7,
+    "ram_delta_mb": 617.5,
+    "avg_time_s": 18.44,
+    "avg_scores": {
+      "people_accuracy": 0.5,
+      "date_accuracy": 0.458,
+      "location_accuracy": 0.583,
+      "tags_accuracy": 0.458,
+      "visual_query_quality": 0.458,
+      "json_validity": 0.75,
+      "overall": 0.492
+    },
+    "query_results": [
+      {
+        "query": "Find photos of Sarah and Jason skiing in the Alps last winter.",
+        "ground_truth": {
+          "people": [
+            "Sarah",
+            "Jason"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2026-02-28",
+          "location": "Alps",
+          "tags": [],
+          "visual_query": "people skiing in snowy mountain landscape"
+        },
+        "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : smollm2-1.7b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> <|system|>\nYou are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a gene ... (truncated)\n\n{\n  \"people\": [\n    \"Sarah\",\n    \"Jason\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2026-02-28\",\n  \"location\": \"Alps\",\n  \"tags\": [\n    \"Activities\",\n    \"Snowboarding\"\n  ],\n  \"visual_query\": \"people skiing in snowy mountain ranges\",\n  \"confidence\": \n\n[ Prompt: 92.0 t/s | Generation: 12.4 t/s ]\n\nExiting...",
+        "parsed": {},
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.0,
+          "json_validity": 0.0,
+          "overall": 0.0,
+          "notes": "Model output is an empty JSON, so none of the required fields are present or correct. No information was extracted, and the JSON is not valid for the task."
+        },
+        "elapsed_s": 19.84386444091797
+      },
+      {
+        "query": "Show photos of David at the beach house on July 4th 2021.",
+        "ground_truth": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"David\"\n  ],\n  \"date_from\": \"2021-07-04\",\n  \"date_to\": \"2021-07-04\",\n  \"location\": \"beach house\",\n  \"tags\": [],\n  \"visual_query\": \"person at a beach house\",\n  \"confidence\": 0.98\n}",
+        "parsed": {
+          "people": [
+            "David"
+          ],
+          "date_from": "2021-07-04",
+          "date_to": "2021-07-04",
+          "location": "beach house",
+          "tags": [],
+          "visual_query": "person at a beach house",
+          "confidence": 0.98
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 1.0,
+          "json_validity": 1.0,
+          "overall": 1.0,
+          "notes": "All fields match the ground truth exactly. The extra 'confidence' field does not affect validity."
+        },
+        "elapsed_s": 19.652592420578003
+      },
+      {
+        "query": "Show photos from Goa with the tags vacation and sunset.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "travel photos in a coastal setting at sunset"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Goa\"\n  ],\n  \"date_from\": \"2022-06-01\",\n  \"date_to\": \"2022-06-30\",\n  \"location\": \"Goa\",\n  \"tags\": [\n    \"vacation\",\n    \"sunset\"\n  ],\n  \"visual_query\": \"Goa with sunset\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [
+            "Goa"
+          ],
+          "date_from": "2022-06-01",
+          "date_to": "2022-06-30",
+          "location": "Goa",
+          "tags": [
+            "vacation",
+            "sunset"
+          ],
+          "visual_query": "Goa with sunset",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.58,
+          "notes": "Incorrectly extracted 'Goa' as a person and added unnecessary date filters. Location and tags are correct. Visual query is less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 19.109814882278442
+      },
+      {
+        "query": "Photos of Rahul and Priya hiking in Ladakh from August 2022.",
+        "ground_truth": {
+          "people": [
+            "Rahul",
+            "Priya"
+          ],
+          "date_from": "2022-08-01",
+          "date_to": "2022-08-31",
+          "location": "Ladakh",
+          "tags": [],
+          "visual_query": "people hiking in mountain terrain"
+        },
+        "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : smollm2-1.7b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> <|system|>\nYou are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a gene ... (truncated)\n\n{\n  \"people\": [\n    \"Rahul\",\n    \"Priya\"\n  ],\n  \"date_from\": \"2022-08-01\",\n  \"date_to\": \"2022-08-01\",\n  \"location\": \"Ladakh\",\n  \"tags\": [\n    \"hiking\",\n    \"nature\"\n  ],\n  \"visual_query\": \"people hiking\n\n[ Prompt: 93.8 t/s | Generation: 11.0 t/s ]\n\nExiting...",
+        "parsed": {},
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.0,
+          "json_validity": 1.0,
+          "overall": 0.0,
+          "notes": "The model output is an empty JSON object, so none of the required fields are present or correct. The JSON is technically valid, but all content is missing."
+        },
+        "elapsed_s": 18.93644142150879
+      },
+      {
+        "query": "Need wedding reception shots from June 2024 with tags wedding and family.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2024-06-01",
+          "date_to": "2024-06-30",
+          "location": null,
+          "tags": [
+            "wedding",
+            "family"
+          ],
+          "visual_query": "outdoor wedding reception celebration"
+        },
+        "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : smollm2-1.7b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> <|system|>\nYou are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a gene ... (truncated)\n\n{\n  \"people\": [\n    \"guests\"\n  ],\n  \"date_from\": \"2024-06-01\",\n  \"date_to\": \"2024-06-30\",\n  \"location\": \"wedding reception\",\n  \"tags\": [\n    \"wedding\",\n    \"family\"\n  ],\n  \"visual_query\": \"guests at a wedding reception\",\n  \"confidence\":\n\n[ Prompt: 80.7 t/s | Generation: 12.8 t/s ]\n\nExiting...",
+        "parsed": {},
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.0,
+          "json_validity": 0.0,
+          "overall": 0.0,
+          "notes": "Model output is an empty JSON, missing all required fields and values. No information was extracted or represented."
+        },
+        "elapsed_s": 19.590020895004272
+      },
+      {
+        "query": "Kids playing in the park last summer.",
+        "ground_truth": {
+          "people": [],
+          "date_from": "2025-06-01",
+          "date_to": "2025-08-31",
+          "location": "park",
+          "tags": [],
+          "visual_query": "children playing outdoors in a park"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Kids\"\n  ],\n  \"date_from\": \"2025-07-01\",\n  \"date_to\": \"2025-07-31\",\n  \"location\": \"Park\",\n  \"tags\": [\n    \"Kids\"\n  ],\n  \"visual_query\": \"Kids playing in a park\",\n  \"confidence\": 0.98\n}",
+        "parsed": {
+          "people": [
+            "Kids"
+          ],
+          "date_from": "2025-07-01",
+          "date_to": "2025-07-31",
+          "location": "Park",
+          "tags": [
+            "Kids"
+          ],
+          "visual_query": "Kids playing in a park",
+          "confidence": 0.98
+        },
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.25,
+          "notes": "Model incorrectly extracted 'Kids' as a person and tag, which is not a named entity. Dates are too narrow compared to ground truth. Location matches. Visual query is less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 18.735863208770752
+      },
+      {
+        "query": "Rohan and Meera engagement photos from December 2025.",
+        "ground_truth": {
+          "people": [
+            "Rohan",
+            "Meera"
+          ],
+          "date_from": "2025-12-01",
+          "date_to": "2025-12-31",
+          "location": null,
+          "tags": [],
+          "visual_query": "couple engagement ceremony"
+        },
+        "raw_output": "--no-conversation is not supported by llama-cli\nplease use llama-completion instead\n\nLoading model... \n\n\n\u2584\u2584 \u2584\u2584\n\u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588  \u2580\u2580\u2588\u2584 \u2588\u2588\u2588\u2584\u2588\u2588\u2588\u2584  \u2580\u2580\u2588\u2584    \u2584\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2584 \u2588\u2588\u2588\u2588\u2584\n\u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2584\u2588\u2580\u2588\u2588    \u2588\u2588    \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588\n\u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2588\u2588 \u2588\u2588 \u2580\u2588\u2584\u2588\u2588 \u2588\u2588 \u2580\u2588\u2588\u2588\u2588 \u2588\u2588\u2588\u2588\u2580 \u2588\u2588\u2588\u2588\u2580\n                                    \u2588\u2588    \u2588\u2588\n                                    \u2580\u2580    \u2580\u2580\n\nbuild      : b1-8c60b8a\nmodel      : smollm2-1.7b-instruct-q4_k_m.gguf\nmodalities : text\n\navailable commands:\n  /exit or Ctrl+C     stop or exit\n  /regen              regenerate the last response\n  /clear              clear the chat history\n  /read               add a text file\n\n\n> <|system|>\nYou are an advanced Named Entity Recognition (NER) and semantic query parsing engine. Your sole function is to process natural language search queries and map them into a strictly formatted, validated JSON object. You do not engage in conversation, provide explanations, or output markdown formatting outside of the raw JSON block.\n\n### OBJECTIVE\nExtract entities such as people, date ranges, and explicit tags from the user's query. Separate the remaining descriptive elements into a gene ... (truncated)\n\n{\n  \"people\": [\n    \"Rohan\",\n    \"Meera\"\n  ],\n  \"date_from\": \"2025-12-01\",\n  \"date_to\": \"2025-12-31\",\n  \"location\": \"engagement photos\",\n  \"tags\": [\n    \"engagement\",\n    \"wedding\"\n  ],\n  \"visual_query\": \"people in a snowy mountain\n\n[ Prompt: 86.5 t/s | Generation: 11.8 t/s ]\n\nExiting...",
+        "parsed": {},
+        "scores": {
+          "people_accuracy": 0.0,
+          "date_accuracy": 0.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.0,
+          "json_validity": 0.0,
+          "overall": 0.0,
+          "notes": "The model output is an empty JSON, so none of the required entities or fields are present. All scores are 0.0 due to complete lack of extraction and invalid JSON structure."
+        },
+        "elapsed_s": 19.50848388671875
+      },
+      {
+        "query": "Black and white street photography from Mumbai.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography in an urban city"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"Mumbai\",\n  \"tags\": [],\n  \"visual_query\": \"black and white street photography\",\n  \"confidence\": 0.90\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "Mumbai",
+          "tags": [],
+          "visual_query": "black and white street photography",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.9,
+          "json_validity": 1.0,
+          "overall": 0.98,
+          "notes": "All fields match exactly except for 'visual_query', which omits 'in an urban city' but still captures the main intent. JSON is valid."
+        },
+        "elapsed_s": 15.790093898773193
+      },
+      {
+        "query": "Neha singing on stage at the college fest with tags concert and performance.",
+        "ground_truth": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "person singing on stage at a live event"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Neha\"\n  ],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"college fest\",\n  \"tags\": [\n    \"concert\",\n    \"performance\"\n  ],\n  \"visual_query\": \"Neha singing on stage\",\n  \"confidence\": 0.99\n}",
+        "parsed": {
+          "people": [
+            "Neha"
+          ],
+          "date_from": null,
+          "date_to": null,
+          "location": "college fest",
+          "tags": [
+            "concert",
+            "performance"
+          ],
+          "visual_query": "Neha singing on stage",
+          "confidence": 0.99
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.95,
+          "notes": "All fields except visual_query match exactly. The visual_query is specific ('Neha singing on stage') but misses the generalization and context ('person singing on stage at a live event') present in the ground truth. JSON is valid."
+        },
+        "elapsed_s": 17.635298490524292
+      },
+      {
+        "query": "Travel photos from Europe in 2019 with Lisa.",
+        "ground_truth": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-01-01",
+          "date_to": "2019-12-31",
+          "location": "Europe",
+          "tags": [],
+          "visual_query": "travel sightseeing around european landmarks"
+        },
+        "raw_output": "{\n  \"people\": [\n    \"Lisa\"\n  ],\n  \"date_from\": \"2019-07-01\",\n  \"date_to\": \"2019-07-31\",\n  \"location\": \"Europe\",\n  \"tags\": [\n    \"Travel\"\n  ],\n  \"visual_query\": \"European travel photos\",\n  \"confidence\": 0.90\n}",
+        "parsed": {
+          "people": [
+            "Lisa"
+          ],
+          "date_from": "2019-07-01",
+          "date_to": "2019-07-31",
+          "location": "Europe",
+          "tags": [
+            "Travel"
+          ],
+          "visual_query": "European travel photos",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 0.5,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 0.5,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.78,
+          "notes": "People and location are exact matches. Date range is a subset (July 2019 vs. full year), so partial credit. Tag 'Travel' is relevant but not in ground truth, so partial. Visual query is concise but less descriptive than ground truth. JSON is valid."
+        },
+        "elapsed_s": 18.984415531158447
+      },
+      {
+        "query": "Indoor plant photos near the window.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "near window",
+          "tags": [],
+          "visual_query": "indoor plants with natural window light"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"indoor\",\n  \"tags\": [\"plants\", \"window\"],\n  \"visual_query\": \"indoor plant photos near the window\",\n  \"confidence\": 0.90\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "indoor",
+          "tags": [
+            "plants",
+            "window"
+          ],
+          "visual_query": "indoor plant photos near the window",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 0.0,
+          "tags_accuracy": 0.0,
+          "visual_query_quality": 0.5,
+          "json_validity": 1.0,
+          "overall": 0.42,
+          "notes": "People and date fields are correct (empty/null). Location is incorrect ('indoor' vs 'near window'). Tags are not present in ground truth, so model tags are not accurate. Visual query is literal but lacks the nuance of 'natural window light'. JSON is valid."
+        },
+        "elapsed_s": 15.940204858779907
+      },
+      {
+        "query": "Just a dark moody sunset over the city skyline.",
+        "ground_truth": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset over city skyline"
+        },
+        "raw_output": "{\n  \"people\": [],\n  \"date_from\": null,\n  \"date_to\": null,\n  \"location\": \"city skyline\",\n  \"tags\": [],\n  \"visual_query\": \"dark moody sunset\",\n  \"confidence\": 0.90\n}",
+        "parsed": {
+          "people": [],
+          "date_from": null,
+          "date_to": null,
+          "location": "city skyline",
+          "tags": [],
+          "visual_query": "dark moody sunset",
+          "confidence": 0.9
+        },
+        "scores": {
+          "people_accuracy": 1.0,
+          "date_accuracy": 1.0,
+          "location_accuracy": 1.0,
+          "tags_accuracy": 1.0,
+          "visual_query_quality": 0.7,
+          "json_validity": 1.0,
+          "overall": 0.95,
+          "notes": "All fields match except 'visual_query', which omits 'over city skyline'. JSON is valid; overall score reflects the minor omission."
+        },
+        "elapsed_s": 17.505290985107422
+      }
+    ]
+  }
+]
